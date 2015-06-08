@@ -1,0 +1,11 @@
+/* Empty. Add your own CSS if you like */
+.bar-subheader {
+  height: 46px !important;
+}
+.has-subheader {
+  top: 100px !important;
+}
+.error {
+	text-align: center;
+	color: red;
+}
