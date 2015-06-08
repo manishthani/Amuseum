@@ -1,0 +1,28 @@
+<ion-view view-title="Show All Works by Author">
+<div class="bar bar-subheader bar-secondary-nav">
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" class="searchbox" placeholder="Search Works by Author" id="searchWorks" name="searchWorks" ng-model="search" ng-change="searchHandler()">
+    </label>
+  </div>
+<ion-content class='has-subheader'>
+
+  <ion-list ng-show="fullList">
+    <ion-item auto-list-divider auto-list-divider-value="{{work.author}}" ng-repeat="work in works |orderBy: 'work.author'" href="#/app/showallworks/{{work.id}}">
+      <div class=" item-icon-left">
+        <h2 style='text-transform: uppercase'>{{work.title}}</h2>
+        <p>{{ work.author}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+ 
+   <ion-list ng-show="filteredList">
+    <ion-item ng-repeat="work in works |orderBy: 'work.author' | filter: {author: search}">
+      <div class=" item-icon-left">
+        <h2 style='text-transform: uppercase'>{{work.title}}</h2>
+        <p>{{ work.author}}</p>
+      </div>
+    </ion-item>
+    </ion-list> 
+</ion-content>
+</ion-view>
