@@ -1,5 +1,7 @@
+angular.module ('LoginModule', [])
 .controller ('LoginCtrl', function($scope,$state,$ionicModal, $timeout){
     // Form data for the login modal
+    
     $scope.loginData = {};
     $scope.error = false;
     $scope.doLogin = function() {

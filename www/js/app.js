@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','ionic.ion.autoListDivider'])
+angular.module('amuseum', ['ionic', 'WorksModule', 'WorkModule', 'LoginModule'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,6 +20,36 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic.ion.autoListDiv
   });
 })
 
+//This directive is used to style the artworks lists 
+.directive('autoListDivider', function($timeout) {  
+  var lastDivideKey = "";
+  
+  return {
+    link: function(scope, element, attrs) {
+      var key = attrs.autoListDividerValue;
+      
+      var defaultDivideFunction = function(k){
+        return k.slice( 0, 1 ).toUpperCase();
+      }
+   
+      var doDivide = function(){
+        var divideFunction = scope.$apply(attrs.autoListDividerFunction) || defaultDivideFunction;
+        var divideKey = divideFunction(key);
+        
+        if(divideKey != lastDivideKey) { 
+          var contentTr = angular.element("<div class='item item-divider'>"+divideKey+"</div>");
+          element[0].parentNode.insertBefore(contentTr[0], element[0]);
+        }
+
+        lastDivideKey = divideKey;
+      }
+      
+      $timeout(doDivide,0)
+    }
+  }
+})
+
+//Config is used to define our app routes
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -27,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ionic.ion.autoListDiv
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
+    controller: 'LoginCtrl'
   })
 
   .state('login', {
