@@ -1,11 +1,15 @@
 <ion-view view-title="Show All Works">
 <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refreshWorks()">
+  </ion-refresher>
   <ion-list ng-show="fullList">
-    <ion-item auto-list-divider auto-list-divider-value="{{work.title}}" ng-repeat="work in works |orderBy: 'work.title'" href="#/app/showallworks/{{work.id}}">
-      <div class=" item-icon-left">
-        <h2 style='text-transform: uppercase'>{{work.title}}</h2>
-        <p>{{ work.author}}</p>
-      </div>
+    <ion-item class=" item-thumbnail-left" ng-repeat="work in works |orderBy: 'name'" href="#/app/showallworks/{{work._id}}" ng-click="workWithId({{work._id}})">
+        <img ng-src="{{work.images[0].url}}">
+        <h2 style='text-transform: uppercase'>{{work.name}}</h2>
+        <h3>{{ work.author}}</h3>
+        <p>{{ work.snippet}}</p>
     </ion-item>
   </ion-list>
 </ion-content>
@@ -19,3 +23,5 @@
   <h2 style='text-transform: uppercase'>{{item.user.name.first}} {{item.user.name.last}}</h2>
   <p>{{item.user.location.city}}{{item.user.location.county}}, {{item.user.location.state}}</p>
 </div> -->
+
+<!--auto-list-divider auto-list-divider-value="{{work.name}}"-->

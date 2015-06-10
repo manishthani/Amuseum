@@ -35,7 +35,7 @@ angular.module('amuseum', ['ionic', 'WorksModule', 'WorkModule', 'LoginModule'])
       var doDivide = function(){
         var divideFunction = scope.$apply(attrs.autoListDividerFunction) || defaultDivideFunction;
         var divideKey = divideFunction(key);
-        
+        console.log("divideKey: " + divideKey + " lastDivideKey: " + lastDivideKey);
         if(divideKey != lastDivideKey) { 
           var contentTr = angular.element("<div class='item item-divider'>"+divideKey+"</div>");
           element[0].parentNode.insertBefore(contentTr[0], element[0]);

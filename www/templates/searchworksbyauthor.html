@@ -6,22 +6,27 @@
     </label>
   </div>
 <ion-content class='has-subheader'>
-
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refreshWorks()">
+  </ion-refresher>
   <ion-list ng-show="fullList">
-    <ion-item auto-list-divider auto-list-divider-value="{{work.author}}" ng-repeat="work in works |orderBy: 'work.author'" href="#/app/showallworks/{{work.id}}">
-      <div class=" item-icon-left">
-        <h2 style='text-transform: uppercase'>{{work.title}}</h2>
-        <p>{{ work.author}}</p>
-      </div>
+    <ion-item class=" item-thumbnail-left" ng-repeat="work in works |orderBy: 'author'" href="#/app/showallworks/{{work._id}}">
+      <!-- <div class=" item-thumbnail-left" ng-href="{{work.images[0].url}}"> -->
+        <img ng-src="{{work.images[0].url}}">
+        <h2 style='text-transform: uppercase'>{{work.author}}</h2>
+        <h3>{{ work.name}}</h3>
+        <p>{{ work.snippet}}</p>
+      <!-- </div> -->
     </ion-item>
   </ion-list>
  
    <ion-list ng-show="filteredList">
-    <ion-item ng-repeat="work in works |orderBy: 'work.author' | filter: {author: search}">
-      <div class=" item-icon-left">
-        <h2 style='text-transform: uppercase'>{{work.title}}</h2>
-        <p>{{ work.author}}</p>
-      </div>
+    <ion-item class=" item-thumbnail-left" ng-repeat="work in works |orderBy: 'author' | filter: {author: search}">
+        <img ng-src="{{work.images[0].url}}">
+        <h2 style='text-transform: uppercase'>{{work.author}}</h2>
+        <h3>{{ work.name}}</h3>
+        <p>{{ work.snippet}}</p>
     </ion-item>
     </ion-list> 
 </ion-content>

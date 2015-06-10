@@ -1,9 +1,9 @@
 /* Empty. Add your own CSS if you like */
 .bar-subheader {
-  height: 46px !important;
+  height: 1em !important;
 }
 .has-subheader {
-  top: 100px !important;
+  margin-top: 1em !important;
 }
 .error {
 	text-align: center;
