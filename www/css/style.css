@@ -9,3 +9,9 @@
 	text-align: center;
 	color: red;
 }
+.sampi{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}

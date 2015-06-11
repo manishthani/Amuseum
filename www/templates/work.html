@@ -1,15 +1,11 @@
 <ion-view view-title="Work Information">
   <ion-content>
-  <ion-refresher
-    pulling-text="Pull to refresh..."
-    on-refresh="refreshWork()">
-  </ion-refresher>
   	 <div class="bar bar-header">
     	 <h2 class="title"> {{workSelected.name}} by {{workSelected.author}} </h2>
     </div>
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide ng-repeat="image in workSelected.images |orderBy: 'name'">
-        <div align="center"><img ng-src="{{image.url}}"></div>
+        <div class="sampi"><img align="middle" ng-src="{{image.url}}"></div>
       </ion-slide>
     </ion-slide-box>
     <div align="center"><p>{{workSelected.description}}</p></div>
