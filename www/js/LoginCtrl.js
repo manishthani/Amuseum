@@ -10,7 +10,7 @@ angular.module ('LoginModule', [])
         // code if using a login system
         $scope.error = false;
         if($scope.loginData.username === "Manish" && $scope.loginData.password === "hello") {
-            $state.go("app.newsfeed");
+            $state.go("app.showallworks");
         }
         else $scope.error= true;
         //else -> Inform user of password incorrect

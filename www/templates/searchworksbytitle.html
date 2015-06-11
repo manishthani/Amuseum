@@ -20,7 +20,7 @@
   </ion-list>
  
    <ion-list ng-show="filteredList">
-    <ion-item class=" item-thumbnail-left" ng-repeat="work in works |orderBy: 'name' | filter: {name: search}">
+    <ion-item class=" item-thumbnail-left" ng-repeat="work in works |orderBy: 'name' | filter: {name: search}" href="#/app/showallworks/{{work._id}}">
         <img ng-src="{{work.images[0].url}}">
         <h2 style='text-transform: uppercase'>{{work.name}}</h2>
         <h3>{{ work.author}}</h3>
