@@ -5,7 +5,7 @@
     </div>
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide ng-repeat="image in workSelected.images |orderBy: 'name'">
-        <div class="sampi"><img align="middle" ng-src="{{image.url}}"></div>
+        <div align="center"><img class="img" ng-src="{{image.url}}"></div>
       </ion-slide>
     </ion-slide-box>
     <div align="center"><p>{{workSelected.description}}</p></div>

@@ -9,9 +9,7 @@
 	text-align: center;
 	color: red;
 }
-.sampi{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.img {
+	max-width: 100%;
+	height: auto;
 }
