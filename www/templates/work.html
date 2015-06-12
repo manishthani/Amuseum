@@ -4,7 +4,7 @@
     	 <h2 class="title"> {{workSelected.name}} by {{workSelected.author}} </h2>
     </div>
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
-      <ion-slide ng-repeat="image in workSelected.images |orderBy: 'name'">
+      <ion-slide ng-repeat="image in workSelected.images |orderBy: 'name'" ng-if="image.url != '-'">
         <div align="center"><img class="img" ng-src="{{image.url}}"></div>
       </ion-slide>
     </ion-slide-box>
